@@ -12,7 +12,16 @@ export const JobsSection = styled.div`
 
   .sidebar {
     background-color: #f3f3f3;
-    height: 10em;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    gap: 1em;
+  }
+
+  .radio-buttons {
+    align-self: center;
   }
 
   .jobs {

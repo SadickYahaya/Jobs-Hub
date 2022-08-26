@@ -7,11 +7,12 @@ export const JobContainer = styled.div`
   background-color: #f3f3f3;
   display: flex;
   gap: 1em;
-  flex-shrink: 1;
+  order: 1;
+  flex-grow: 0;
 
   .job-logo img {
-    width: 120px;
-    height: 100px;
+    width: 10.5em;
+    height: 10.5em;
   }
 
   .job-info,
@@ -20,10 +21,12 @@ export const JobContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+    width: auto;
   }
 
   .job-info {
-    gap: 1em;
+    gap: 0;
+    justify-content: space-between;
   }
 
   .job-location {
