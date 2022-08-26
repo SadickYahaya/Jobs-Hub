@@ -4,7 +4,6 @@ import Checkbox, { CheckboxProps } from "@mui/material/Checkbox";
 import FormLabel from "@mui/material/FormLabel";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { left } from "@popperjs/core";
 
 const BpIcon = styled("span")(({ theme }) => ({
   borderRadius: 3,
