@@ -2,8 +2,9 @@ import React from "react";
 import { HeaderStyles, Nav, Search } from "./Header.styles";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import FindJobButton from "../../Utils/Button";
+import DefaultButton from "../../Utils/Button";
+import Inputs from "../../Utils/TextField";
+import { findJobsButton } from "../../Utils/JobData";
 
 const Header = () => {
   return (
@@ -17,21 +18,8 @@ const Header = () => {
         </Nav>
         <Search>
           <Stack spacing={1} direction="row">
-            <TextField
-              sx={{
-                width: 415,
-              }}
-              InputProps={{ sx: { height: 40 } }}
-              placeholder="job titles, keywords or company"
-            />
-            <TextField
-              sx={{
-                width: 415,
-              }}
-              InputProps={{ sx: { height: 40 } }}
-              placeholder="city, state or zip code"
-            />
-            <FindJobButton />
+            <Inputs />
+            <DefaultButton {...findJobsButton} />
           </Stack>
         </Search>
       </HeaderStyles>

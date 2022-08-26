@@ -38,10 +38,14 @@ const BootstrapButton = styled(Button)({
   },
 });
 
-export default function FindJobButton() {
+interface ButtonType {
+  buttonType: string;
+}
+
+export default function DefaultButton({ buttonType }: ButtonType) {
   return (
     <BootstrapButton variant="contained" disableRipple>
-      Find Jobs
+      {buttonType}
     </BootstrapButton>
   );
 }
