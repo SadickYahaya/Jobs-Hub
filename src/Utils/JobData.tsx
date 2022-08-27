@@ -51,8 +51,12 @@ export const jobInfo4 = {
 
 export const findJobsButton = {
   buttonType: "Find Jobs",
+  onClick: "",
 };
 
 export const viewJobButton = {
   buttonType: "View Job",
+  onClick: "",
 };
+
+
