@@ -2,40 +2,88 @@ import styled from "styled-components";
 
 export const JobContainer = styled.div`
   height: auto;
-  width: auto;
   padding: 1em;
+  margin-right: 0.5em;
   background-color: #f3f3f3;
   display: flex;
-  gap: 1em;
+  justify-content: space-between;
   order: 1;
   flex-grow: 0;
-
-  .job-logo img {
-    width: 10.5em;
-    height: 10.5em;
+  border-radius: 10px;
+  @media (max-width: 600px) {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
   }
 
-  .job-info,
-  .job-description,
-  .job-title {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    width: auto;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+
+  .job-logo img {
+    width: 4.5em;
+    height: 4.5em;
+    border-radius: 10px;
   }
 
   .job-info {
-    gap: 0;
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
   }
 
-  .job-location {
-    margin-left: 1em;
+  .job-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2em;
+    @media (max-width: 600px) {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .company-info span {
+    font-size: 12px;
+    margin-right: 0.4em;
+    color: gray;
+  }
+
+  .dot {
+    height: 5px;
+    width: 5px;
   }
 
   .job-type {
-    background-color: #a67117;
-    padding: 0.2em;
-    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 2.5em;
+    @media (max-width: 600px) {
+      justify-content: flex-end;
+      flex-direction: row;
+      .type {
+        padding: 0.7em;
+      }
+    }
+  }
+
+  .type {
+    padding: 0.3em;
+    border-radius: 10px;
+  }
+
+  .type-full {
+    background-color: rgba(51, 214, 159, 0.1);
+    color: #33d69f;
+  }
+
+  .type-part {
+    background-color: rgba(55, 59, 83, 0.1);
+    color: #373b53;
   }
 `;

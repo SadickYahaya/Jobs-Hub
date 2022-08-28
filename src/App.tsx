@@ -1,13 +1,16 @@
 import React from "react";
-import "./App.css";
-import Header from "./Components/Header/Header";
-import Jobs from "./Components/JobsSection/Jobs";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Components/Home";
+import JobDetails from "./Components/JobsSection/JobDetails/JobDetails";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Jobs />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/view-job" element={<JobDetails />} />
+      </Routes>
     </div>
   );
 }
