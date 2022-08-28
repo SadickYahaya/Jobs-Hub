@@ -23,7 +23,7 @@ const JobDetails = () => {
       <JobDetailsContainer>
         <div className="go-back" onClick={() => navigate("/")}>
           <BackArrow />
-          <span>Go Back</span>
+          <span>Previous Page</span>
         </div>
         <h3>Job Details</h3>
         <div className="details-section">
@@ -40,17 +40,18 @@ const JobDetails = () => {
                     </div>
                   </div>
                 </div>
-                <div className="job-description">
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer nec odio. Praesent libero. Sed cursus ante dapibus
-                    diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
-                    Duis sagittis ipsum. Praesent mauris.
-                  </span>
+                <div className="logo-container">
+                  <img src={logo} alt="" />
                 </div>
               </div>
-              <div className="logo-container">
-                <img src={logo} alt="" />
+              <div className="job-description">
+                <h3>Overview</h3>
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Integer nec odio. Praesent libero. Sed cursus ante dapibus
+                  diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                  Duis sagittis ipsum. Praesent mauris.
+                </span>
               </div>
             </div>
           </JobDetail>

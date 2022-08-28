@@ -31,11 +31,11 @@ export const JobDetail = styled.div`
   .job-info-container,
   .type {
     display: flex;
-    gap: 2em;
+    gap: 1em;
   }
 
-  .type {
-    gap: 1em;
+  .job-info-container {
+    flex-direction: column;
   }
 
   .job-info,
@@ -45,6 +45,12 @@ export const JobDetail = styled.div`
     flex-direction: column;
   }
 
+  .job-info {
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+  }
+
   .location {
     align-self: center;
   }
@@ -52,6 +58,10 @@ export const JobDetail = styled.div`
   .title {
     font-size: 26px;
     font-weight: 700;
+  }
+
+  .logo-container {
+    height: fit-content;
   }
 
   .logo-container img {
@@ -70,5 +80,9 @@ export const JobDetail = styled.div`
     padding: 0.31em;
     color: #fff;
     border-radius: 5px;
+  }
+
+  .job-description {
+
   }
 `;
