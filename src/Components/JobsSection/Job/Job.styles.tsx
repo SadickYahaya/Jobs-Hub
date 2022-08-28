@@ -11,7 +11,7 @@ export const JobContainer = styled.div`
   flex-grow: 0;
   border-radius: 10px;
   @media (max-width: 600px) {
-    width: 100%;
+    width: 100vw;
     flex-direction: column;
     gap: 0;
   }

@@ -28,7 +28,7 @@ export const Nav = styled.div`
 export const Search = styled.div`
   margin-bottom: 2em;
   @media (max-width: 600px) {
-    display: none;
+    /* display: none; */
   }
 
   @media (max-width: 1024px) {
