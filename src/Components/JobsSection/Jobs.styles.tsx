@@ -73,5 +73,9 @@ export const JobsSection = styled.div`
     gap: 1em;
     overflow-y: scroll;
     width: auto;
+    @media (max-width: 600px) {
+      overflow-y: scroll;
+      height: 100vh;
+    }
   }
 `;

@@ -17,7 +17,7 @@ const Header = () => {
           </h2>
         </Nav>
         <Search>
-          <Stack spacing={1} direction="row">
+          <Stack spacing={1} direction={{ xs: "column", sm: "row", lg: "row" }}>
             <Inputs />
             <DefaultButton {...findJobsButton} />
           </Stack>

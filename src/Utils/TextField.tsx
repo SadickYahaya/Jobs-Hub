@@ -6,13 +6,36 @@ import IconButton from "@mui/material/IconButton";
 import BusinessCenterTwoToneIcon from "@mui/icons-material/BusinessCenterTwoTone";
 import SearchIcon from "@mui/icons-material/GpsFixed";
 
+// const PaperStyles = styled.div`
+//   @media (max-width: 600px) {
+//     .paper {
+//       flex-direction: column;
+//       width: 0;
+//     }
+//   }
+// `;
+
 export default function Inputs() {
   return (
+    // <PaperStyles>
     <Paper
+      className="paper"
       component="form"
-      sx={{ p: "2px 4px", display: "flex", alignItems: "center", width: 820 }}
+      sx={{
+        p: "2px 4px",
+        display: "flex",
+        alignItems: "center",
+        width: { sm: 820, lg: 820 },
+        flexDirection: { xs: "column", sm: "row", md: "row", lg: "row" },
+      }}
     >
-      <IconButton sx={{ p: "10px" }} aria-label="menu">
+      <IconButton
+        sx={{
+          p: "10px",
+          display: { xs: "none", sm: "block", md: "block", lg: "block" },
+        }}
+        aria-label="menu"
+      >
         <BusinessCenterTwoToneIcon />
       </IconButton>
       <InputBase
@@ -20,8 +43,32 @@ export default function Inputs() {
         placeholder="jobs, titles or company"
         inputProps={{ "aria-label": "enter job, title or company" }}
       />
-      <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-      <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+
+      <Divider
+        sx={{
+          height: 28,
+          m: 0.5,
+          display: { xs: "none", sm: "block", md: "block", lg: "block" },
+        }}
+        orientation="vertical"
+      />
+
+      <Divider
+        sx={{
+          width: 280,
+          m: 0.5,
+          display: { xs: "block", sm: "none", md: "none", lg: "none" },
+        }}
+      />
+
+      <IconButton
+        type="button"
+        sx={{
+          p: "10px",
+          display: { xs: "none", sm: "block", md: "block", lg: "block" },
+        }}
+        aria-label="search"
+      >
         <SearchIcon />
       </IconButton>
       <InputBase
@@ -30,5 +77,6 @@ export default function Inputs() {
         inputProps={{ "aria-label": "enter city, state or country" }}
       />
     </Paper>
+    // </PaperStyles>
   );
 }
