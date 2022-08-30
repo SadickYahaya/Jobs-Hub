@@ -8,6 +8,7 @@ export const JobsContainer = styled.div`
   gap: 1em;
   @media (max-width: 600px) {
     width: 90%;
+    flex-direction: column;
   }
 
   @media (max-width: 1024px) {
@@ -35,7 +36,10 @@ export const JobsContainer = styled.div`
   @media (max-width: 600px) {
     width: 90%;
     .sidebar {
-      display: none;
+      flex-direction: row-reverse;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      background-color: #fff;
     }
   }
 

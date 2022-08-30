@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const JobContainer = styled.div`
+  width: auto;
   height: auto;
   padding: 1em;
   margin-right: 0.5em;
@@ -8,6 +9,7 @@ export const JobContainer = styled.div`
   display: flex;
   justify-content: space-between;
   order: 1;
+  gap: 1em;
   flex-grow: 0;
   border-radius: 10px;
   @media (max-width: 600px) {
@@ -62,7 +64,7 @@ export const JobContainer = styled.div`
   .job-type {
     display: flex;
     align-items: center;
-    gap: 2.5em;
+    gap: 1em;
     @media (max-width: 600px) {
       justify-content: flex-end;
       flex-direction: row;
@@ -85,5 +87,9 @@ export const JobContainer = styled.div`
   .type-part {
     background-color: rgba(55, 59, 83, 0.1);
     color: #373b53;
+  }
+
+  .view-button {
+    max-height: 2em !important;
   }
 `;

@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import CircleIcon from "@mui/icons-material/Circle";
-// import RoomIcon from "@mui/icons-material/Room";
 import DefaultButton from "../../../Utils/Button";
 import { viewJobButton } from "../../../Utils/JobData";
 import { JobContainer } from "./Job.styles";
+import { auth } from "../../../api";
 
 interface JobInfo {
   jobLogo: string;
@@ -36,6 +36,9 @@ const Job = ({
   };
 
   const navigate = useNavigate();
+
+  console.log(auth);
+
   return (
     <>
       <JobContainer>

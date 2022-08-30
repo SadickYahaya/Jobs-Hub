@@ -72,7 +72,14 @@ function BpRadio(props: RadioProps) {
 export default function JobLocationRadioButtons() {
   return (
     <FormControl className="radio-buttons">
-      <FormLabel id="demo-customized-radios">
+      <FormLabel
+        id="demo-customized-radios"
+        sx={{
+          backgroundColor: { xs: "#f3f3f3" },
+          padding: { xs: "0.5em" },
+          borderRadius: { xs: "10px" },
+        }}
+      >
         <span
           style={{
             fontFamily: "Lato",
