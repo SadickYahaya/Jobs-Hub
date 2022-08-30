@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { styled } from "@mui/material/styles";
 import Checkbox, { CheckboxProps } from "@mui/material/Checkbox";
 import FormLabel from "@mui/material/FormLabel";
@@ -53,7 +53,6 @@ const BpCheckedIcon = styled(BpIcon)({
   },
 });
 
-// Inspired by blueprintjs
 function BpCheckbox(props: CheckboxProps) {
   return (
     <Checkbox
@@ -74,7 +73,14 @@ export default function CustomizedCheckbox() {
   return (
     <div>
       <FormControl className="radio-buttons">
-        <FormLabel id="demo-customized-radios">
+        <FormLabel
+          id="demo-customized-radios"
+          sx={{
+            backgroundColor: { xs: "#f3f3f3" },
+            padding: { xs: "0.5em" },
+            borderRadius: { xs: "10px" },
+          }}
+        >
           <span
             style={{
               fontFamily: "Lato",
