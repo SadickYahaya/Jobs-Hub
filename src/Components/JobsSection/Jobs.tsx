@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
 import Job from "./Job/Job";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { getJobs } from "../../actions/jobs";
 import { JobsContainer, JobsSection } from "./Jobs.styles";
-import {
-  jobInfo,
-  jobInfo1,
-  jobInfo2,
-  jobInfo3,
-  jobInfo4,
-} from "../../Utils/JobData";
 import JobTypeCheckbox from "../../Utils/Checkbox";
 import JobLocationRadioButtons from "../../Utils/Radio";
+import { rootReducer } from "../../reducers";
+
+type AppState = ReturnType<typeof rootReducer>;
 
 const Jobs = () => {
+  const jobs = useSelector((state: AppState) => state.jobs);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getJobs();
+  }, [dispatch]);
+
   return (
     <JobsContainer>
       <div className="sidebar">
@@ -24,18 +32,49 @@ const Jobs = () => {
         </span>
       </div>
       <JobsSection>
-        <div className="jobs">
-          <Job {...jobInfo} />
-          <Job {...jobInfo1} />
-          <Job {...jobInfo2} />
-          <Job {...jobInfo3} />
-          <Job {...jobInfo4} />
-          <Job {...jobInfo} />
-          <Job {...jobInfo1} />
-          <Job {...jobInfo2} />
-          <Job {...jobInfo3} />
-          <Job {...jobInfo4} />
-        </div>
+        {jobs?.length > 0 ? ( //if there invoices in our database
+          <div className="jobs">
+            {jobs.map((job) => (
+              <div key={job._id}>
+                <Job job={job} key={job._id} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <Stack spacing={1}>
+            <Skeleton
+              variant="rectangular"
+              width={600}
+              height={72}
+              animation="wave"
+            />
+            <Skeleton
+              variant="rectangular"
+              width={600}
+              height={72}
+              animation="wave"
+            />
+            <Skeleton
+              variant="rectangular"
+              width={600}
+              height={72}
+              animation="wave"
+            />
+            <Skeleton
+              variant="rectangular"
+              width={600}
+              height={72}
+              animation="wave"
+            />
+            <Skeleton
+              variant="rectangular"
+              width={600}
+              height={72}
+              animation="wave"
+            />
+          </Stack>
+        )}
+
         <div className="pagination">
           <Pagination count={10} size="small" />
         </div>

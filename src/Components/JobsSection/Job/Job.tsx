@@ -4,40 +4,33 @@ import CircleIcon from "@mui/icons-material/Circle";
 import DefaultButton from "../../../Utils/Button";
 import { viewJobButton } from "../../../Utils/JobData";
 import { JobContainer } from "./Job.styles";
-import { auth } from "../../../api";
+import jobLogo from "../../../Assets/job-logo.jpg";
 
-interface JobInfo {
-  jobLogo: string;
-  companyName: string;
-  jobTitle: string;
-  jobType: string;
-  jobLocation: string;
-  jobDescription: string;
-  timePosted: string;
+interface JobInfoProps {
+  job: JobData;
 }
 
-const Job = ({
-  jobLogo,
-  companyName,
-  jobTitle,
-  jobType,
-  jobLocation,
-  jobDescription,
-  timePosted,
-}: JobInfo) => {
-  const changeColor = () => {
-    let className = "";
-    if (jobType === "FullTime") {
-      className = "type type-full";
-    } else {
-      className = "type type-part";
-    }
-    return className;
-  };
+export interface JobData {
+  title: string;
+  company: string;
+  location: string;
+  created: string;
+  display_name: string;
+  contract_type: string;
+}
+
+const Job = ({ job }: JobInfoProps) => {
+  // const changeColor = () => {
+  //   let className = "";
+  //   if (jobType === "FullTime") {
+  //     className = "type type-full";
+  //   } else {
+  //     className = "type type-part";
+  //   }
+  //   return className;
+  // };
 
   const navigate = useNavigate();
-
-  console.log(auth);
 
   return (
     <>
@@ -47,22 +40,22 @@ const Job = ({
             <img src={jobLogo} alt="" />
           </div>
           <div className="job-title">
-            <span className="title">{jobTitle}</span>
+            <span className="title">{job.title}</span>
             <div className="company-info">
-              <span>{companyName}</span>
+              <span>{job.company}</span>
               <span>
                 <CircleIcon className="dot" />
               </span>
-              <span>{jobLocation}</span>
+              <span>{job.location}</span>
               <span>
                 <CircleIcon className="dot" />
               </span>
-              <span>{timePosted} days ago</span>
+              <span>{job.created} days ago</span>
             </div>
           </div>
         </div>
         <div className="job-type">
-          <span className={changeColor()}>{jobType}</span>
+          <span className="type">{job.contract_type}</span>
           <div className="button">
             <span className="view-button" onClick={() => navigate("/view-job")}>
               <DefaultButton {...viewJobButton} />
