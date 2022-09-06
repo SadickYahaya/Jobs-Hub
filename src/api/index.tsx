@@ -1,11 +1,16 @@
 import axios from "axios";
 
-const url = "http://localhost:5000";
+const id = process.env.REACT_APP_ID;
+const key = process.env.REACT_APP_KEY;
 
-// const keyword = "developer";
-// const location = "newyork";
+export const fetchJobs = () => {
+  return fetch(
+    `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${id}&app_key=${key}&results_per_page=5`
+  );
+};
 
-export const fetchJobs = () => axios.get(url);
-export const searchJobs = (searchQuery) =>
-  axios.get(`${url}?what=${searchQuery}&where=${searchQuery}`);
-export const fetchJob = (id) => axios.get(`${url}/${id}`);
+export const pagination = () => {
+  return fetch(
+    `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${id}&app_key=${key}&results_per_page=5&category=`
+  );
+};

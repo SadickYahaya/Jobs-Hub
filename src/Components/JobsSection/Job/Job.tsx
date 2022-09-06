@@ -6,30 +6,12 @@ import { viewJobButton } from "../../../Utils/JobData";
 import { JobContainer } from "./Job.styles";
 // import jobLogo from "../../../Assets/job-logo.jpg";
 
-export interface JobInfoProps {
-  job: JobData;
-}
+type Props = {
+  job: IJob;
+};
 
-export interface JobData {
-  title: string;
-  company: CompanyName;
-  location: LocationName;
-  created: string;
-  contract_time: string;
-  id: string;
-  description: string;
-  count: number;
-}
-
-interface CompanyName {
-  display_name: any;
-}
-
-interface LocationName {
-  display_name: any;
-}
-
-const Job = ({ job }: JobInfoProps) => {
+const Job: React.FC<Props> = ({ job }) => {
+  
   const changeColor = () => {
     let className = "";
     if (job.contract_time === "full_time") {
