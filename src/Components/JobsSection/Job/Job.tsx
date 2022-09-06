@@ -4,30 +4,35 @@ import CircleIcon from "@mui/icons-material/Circle";
 import DefaultButton from "../../../Utils/Button";
 import { viewJobButton } from "../../../Utils/JobData";
 import { JobContainer } from "./Job.styles";
-import { auth } from "../../../api";
+// import jobLogo from "../../../Assets/job-logo.jpg";
 
-interface JobInfo {
-  jobLogo: string;
-  companyName: string;
-  jobTitle: string;
-  jobType: string;
-  jobLocation: string;
-  jobDescription: string;
-  timePosted: string;
+export interface JobInfoProps {
+  job: JobData;
 }
 
-const Job = ({
-  jobLogo,
-  companyName,
-  jobTitle,
-  jobType,
-  jobLocation,
-  jobDescription,
-  timePosted,
-}: JobInfo) => {
+export interface JobData {
+  title: string;
+  company: CompanyName;
+  location: LocationName;
+  created: string;
+  contract_time: string;
+  id: string;
+  description: string;
+  count: number;
+}
+
+interface CompanyName {
+  display_name: any;
+}
+
+interface LocationName {
+  display_name: any;
+}
+
+const Job = ({ job }: JobInfoProps) => {
   const changeColor = () => {
     let className = "";
-    if (jobType === "FullTime") {
+    if (job.contract_time === "full_time") {
       className = "type type-full";
     } else {
       className = "type type-part";
@@ -37,32 +42,33 @@ const Job = ({
 
   const navigate = useNavigate();
 
-  console.log(auth);
-
   return (
     <>
       <JobContainer>
         <div className="job-info">
-          <div className="job-logo">
+          {/* <div className="job-logo">
             <img src={jobLogo} alt="" />
-          </div>
+          </div> */}
           <div className="job-title">
-            <span className="title">{jobTitle}</span>
+            <span className="title">{job.title}</span>
             <div className="company-info">
-              <span>{companyName}</span>
+              <span>{job.company.display_name}</span>
               <span>
                 <CircleIcon className="dot" />
               </span>
-              <span>{jobLocation}</span>
+              <span>{job.location.display_name}</span>
               <span>
                 <CircleIcon className="dot" />
               </span>
-              <span>{timePosted} days ago</span>
+              <span>{new Date(job.created).toLocaleDateString()}</span>
             </div>
+            <h5 className="description">
+              {job.description.substring(0, 150)} ...
+            </h5>
           </div>
         </div>
         <div className="job-type">
-          <span className={changeColor()}>{jobType}</span>
+          <span className={changeColor()}>{job.contract_time}</span>
           <div className="button">
             <span className="view-button" onClick={() => navigate("/view-job")}>
               <DefaultButton {...viewJobButton} />

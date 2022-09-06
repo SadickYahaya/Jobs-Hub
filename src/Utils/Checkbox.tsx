@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import Checkbox, { CheckboxProps } from "@mui/material/Checkbox";
-import FormLabel from "@mui/material/FormLabel";
+// import FormLabel from "@mui/material/FormLabel";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
@@ -73,7 +73,7 @@ export default function CustomizedCheckbox() {
   return (
     <div>
       <FormControl className="radio-buttons">
-        <FormLabel
+        {/* <FormLabel
           id="demo-customized-radios"
           sx={{
             backgroundColor: { xs: "#f3f3f3" },
@@ -90,7 +90,7 @@ export default function CustomizedCheckbox() {
           >
             Job Type
           </span>
-        </FormLabel>
+        </FormLabel> */}
         <FormControlLabel
           value="accra"
           control={<BpCheckbox />}
