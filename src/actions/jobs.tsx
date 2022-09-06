@@ -1,17 +1,5 @@
-// import { JobData } from "../Components/JobsSection/Job/Job";
-import { GET_JOBS } from "../app/types";
-// import * as api from "./../api";
+import { GET_JOBS } from "../app/actionTypes";
 import axios from "axios";
-
-//Action Creators
-// export const getJob = (id) => async (dispatch) => {
-//   try {
-//     const { data } = await api.fetchJob(id);
-//     dispatch({ type: "FETCH_JOB", payload: data });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 export const getJobs = () => async (dispatch) => {
   try {

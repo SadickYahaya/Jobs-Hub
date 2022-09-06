@@ -1,35 +1,46 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import Pagination from "@mui/material/Pagination";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
-import Job from "./Job/Job";
-// import { useDispatch } from "react-redux";
-// import { useSelector } from "react-redux";
-// import { getJobs } from "../../actions/jobs";
+import { FetchJobs } from "../../app/actionCreators";
+import { Dispatch } from "redux";
 import { JobsContainer, JobsSection } from "./Jobs.styles";
 import JobTypeCheckbox from "../../Utils/Checkbox";
 import JobLocationRadioButtons from "../../Utils/Radio";
 import DownIcon from "@mui/icons-material/KeyboardArrowDown";
-// import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import Job from "./Job/Job";
+import { fetchJobs } from "../../api";
 
 const Jobs = () => {
-  // const jobs = useAppSelector((state) => state.jobs);
   const [jobs, setJobs] = useState([]);
-  // const [filters, setFilters] = useState([]);
+  const [page, setPage] = useState(1);
 
-  // const dispatch = useAppDispatch();
+  // const jobs: readonly IJob[] = useSelector(
+  //   (state: JobState) => state.jobs,
+  //   shallowEqual
+  // );
+  // const dispatch: Dispatch<any> = useDispatch();
   const id = process.env.REACT_APP_ID;
   const key = process.env.REACT_APP_KEY;
 
   useEffect(() => {
-    // dispatch(getJobs());
-    fetch(
-      `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${id}&app_key=${key}&results_per_page=5&category=`
-    )
+    fetchJobs()
       .then((response) => response.json())
       .then((res) => setJobs(res.results))
       .catch((error) => console.log(error.message));
   }, [id, key]);
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    fetch(
+      `https://api.adzuna.com/v1/api/jobs/us/search/${page}?app_id=${id}&app_key=${key}&results_per_page=5&category=it-jobs`
+    )
+      .then((response) => response.json())
+      .then((res) => setJobs(res.results))
+      .catch((error) => console.log(error.message));
+    setPage(value);
+    console.log(page);
+  };
 
   return (
     <JobsContainer>
@@ -54,9 +65,9 @@ const Jobs = () => {
         </div>
         {jobs?.length > 0 ? (
           <div className="jobs">
-            {jobs.map((job) => (
+            {jobs.map((job: IJob) => (
               <div>
-                <Job job={job} key={job._id} />
+                <Job job={job} key={job.id} />
               </div>
             ))}
           </div>
@@ -67,11 +78,22 @@ const Jobs = () => {
             <Skeleton variant="rectangular" height={72} animation="wave" />
             <Skeleton variant="rectangular" height={72} animation="wave" />
             <Skeleton variant="rectangular" height={72} animation="wave" />
-            <Skeleton variant="rectangular" width={720} height={72} />
+            <Skeleton
+              variant="rectangular"
+              width={720}
+              height={72}
+              animation="wave"
+            />
           </Stack>
         )}
         <div className="pagination">
-          <Pagination count={10} size="small" />
+          <Pagination
+            count={10}
+            size="small"
+            page={page}
+            defaultPage={1}
+            onChange={handleChange}
+          />
         </div>
       </JobsSection>
     </JobsContainer>
