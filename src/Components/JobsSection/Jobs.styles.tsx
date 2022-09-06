@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const JobsContainer = styled.div`
-  width: 60%;
+  width: auto;
+  max-width: 60%;
   margin: 3em auto;
   display: flex;
   justify-content: center;
@@ -24,7 +25,7 @@ export const JobsContainer = styled.div`
   .sidebar {
     background-color: #f3f3f3;
     height: max-content;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     padding: 1em;
@@ -50,7 +51,7 @@ export const JobsContainer = styled.div`
 
 export const JobsSection = styled.div`
   display: grid;
-  width: -webkit-fill-available;
+  width: auto;
   grid-template-columns: 1fr;
   grid-gap: 30px;
   place-content: center;
@@ -71,11 +72,27 @@ export const JobsSection = styled.div`
     margin-bottom: 2px;
   }
 
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .job-select {
+    display: flex;
+  }
+
+  .job-length,
+  .job-locations {
+    font-weight: 700;
+    margin-bottom: 0px;
+  }
+
   .jobs {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     width: auto;
     @media (max-width: 600px) {
       overflow-y: scroll;

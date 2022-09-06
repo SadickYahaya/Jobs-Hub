@@ -4,7 +4,6 @@ export const JobContainer = styled.div`
   width: auto;
   height: auto;
   padding: 1em;
-  margin-right: 0.5em;
   background-color: #f3f3f3;
   display: flex;
   justify-content: space-between;
@@ -45,6 +44,13 @@ export const JobContainer = styled.div`
     }
   }
 
+  .description {
+    margin-top: 5px;
+    opacity: 0.7;
+    width: 90%;
+    margin-bottom: 0;
+  }
+
   .title {
     font-size: 18px;
     font-weight: 700;
@@ -65,6 +71,8 @@ export const JobContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1em;
+    width: 22em;
+    justify-content: space-between;
     @media (max-width: 600px) {
       justify-content: flex-end;
       flex-direction: row;
@@ -90,6 +98,6 @@ export const JobContainer = styled.div`
   }
 
   .view-button {
-    max-height: 2em !important;
+    width: auto;
   }
 `;
