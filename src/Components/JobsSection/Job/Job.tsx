@@ -1,17 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+// import Skeleton from "@mui/material/Skeleton";
 import CircleIcon from "@mui/icons-material/Circle";
 import DefaultButton from "../../../Utils/Button";
 import { viewJobButton } from "../../../Utils/JobData";
 import { JobContainer } from "./Job.styles";
 // import jobLogo from "../../../Assets/job-logo.jpg";
 
-type Props = {
-  job: IJob;
-};
-
-const Job: React.FC<Props> = ({ job }) => {
-  
+const Job = ({ job }) => {
   const changeColor = () => {
     let className = "";
     if (job.contract_time === "full_time") {
@@ -32,7 +28,12 @@ const Job: React.FC<Props> = ({ job }) => {
             <img src={jobLogo} alt="" />
           </div> */}
           <div className="job-title">
-            <span className="title">{job.title}</span>
+            <div>
+              <span className="title">{job.title}</span>
+              <span className={changeColor()}>
+                {job.contract_time || "N/A"}
+              </span>
+            </div>
             <div className="company-info">
               <span>{job.company.display_name}</span>
               <span>
@@ -50,7 +51,7 @@ const Job: React.FC<Props> = ({ job }) => {
           </div>
         </div>
         <div className="job-type">
-          <span className={changeColor()}>{job.contract_time}</span>
+          {/* <span className={changeColor()}>{job.contract_time || "N/A"}</span> */}
           <div className="button">
             <span className="view-button" onClick={() => navigate("/view-job")}>
               <DefaultButton {...viewJobButton} />

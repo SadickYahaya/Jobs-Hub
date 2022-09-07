@@ -4,20 +4,10 @@ import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import BusinessCenterTwoToneIcon from "@mui/icons-material/BusinessCenterTwoTone";
-import SearchIcon from "@mui/icons-material/GpsFixed";
-
-// const PaperStyles = styled.div`
-//   @media (max-width: 600px) {
-//     .paper {
-//       flex-direction: column;
-//       width: 0;
-//     }
-//   }
-// `;
+import LocationIcon from "@mui/icons-material/GpsFixed";
 
 export default function Inputs() {
   return (
-    // <PaperStyles>
     <Paper
       className="paper"
       component="form"
@@ -26,17 +16,20 @@ export default function Inputs() {
         display: "flex",
         alignItems: "center",
         width: { sm: 820, lg: 820 },
+        height: 40,
         flexDirection: { xs: "column", sm: "row", md: "row", lg: "row" },
+        borderBottom: "none",
+        outline: "none",
       }}
     >
       <IconButton
         sx={{
-          p: "10px",
+          p: "5px",
           display: { xs: "none", sm: "block", md: "block", lg: "block" },
         }}
         aria-label="menu"
       >
-        <BusinessCenterTwoToneIcon />
+        <BusinessCenterTwoToneIcon fontSize="small" />
       </IconButton>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
@@ -69,7 +62,7 @@ export default function Inputs() {
         }}
         aria-label="search"
       >
-        <SearchIcon />
+        <LocationIcon fontSize="small" />
       </IconButton>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
@@ -77,6 +70,5 @@ export default function Inputs() {
         inputProps={{ "aria-label": "enter city, state or country" }}
       />
     </Paper>
-    // </PaperStyles>
   );
 }

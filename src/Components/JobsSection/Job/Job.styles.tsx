@@ -71,7 +71,7 @@ export const JobContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1em;
-    width: 22em;
+    width: 10em;
     justify-content: space-between;
     @media (max-width: 600px) {
       justify-content: flex-end;
@@ -84,7 +84,11 @@ export const JobContainer = styled.div`
 
   .type {
     padding: 0.3em;
-    border-radius: 10px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 10px;
   }
 
   .type-full {
@@ -94,7 +98,7 @@ export const JobContainer = styled.div`
 
   .type-part {
     background-color: rgba(55, 59, 83, 0.1);
-    color: #373b53;
+    color: #8f3d29;
   }
 
   .view-button {

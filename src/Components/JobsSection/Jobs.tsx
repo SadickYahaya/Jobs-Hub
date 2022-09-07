@@ -1,71 +1,64 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, shallowEqual, useDispatch } from "react-redux";
+import React, { useState } from "react";
 import Pagination from "@mui/material/Pagination";
+import FormControl from "@mui/material/FormControl";
+import { Checkbox } from "@mui/material";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
-import { FetchJobs } from "../../app/actionCreators";
-import { Dispatch } from "redux";
 import { JobsContainer, JobsSection } from "./Jobs.styles";
-import JobTypeCheckbox from "../../Utils/Checkbox";
-import JobLocationRadioButtons from "../../Utils/Radio";
 import DownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Job from "./Job/Job";
-import { fetchJobs } from "../../api";
+import useFetchJobs from "../../api/useFetchJobs";
 
 const Jobs = () => {
-  const [jobs, setJobs] = useState([]);
+  const [params] = useState({});
   const [page, setPage] = useState(1);
+  const { jobs, error } = useFetchJobs(params, page);
 
-  // const jobs: readonly IJob[] = useSelector(
-  //   (state: JobState) => state.jobs,
-  //   shallowEqual
-  // );
-  // const dispatch: Dispatch<any> = useDispatch();
-  const id = process.env.REACT_APP_ID;
-  const key = process.env.REACT_APP_KEY;
-
-  useEffect(() => {
-    fetchJobs()
-      .then((response) => response.json())
-      .then((res) => setJobs(res.results))
-      .catch((error) => console.log(error.message));
-  }, [id, key]);
-
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    fetch(
-      `https://api.adzuna.com/v1/api/jobs/us/search/${page}?app_id=${id}&app_key=${key}&results_per_page=5&category=it-jobs`
-    )
-      .then((response) => response.json())
-      .then((res) => setJobs(res.results))
-      .catch((error) => console.log(error.message));
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
     setPage(value);
-    console.log(page);
   };
 
   return (
     <JobsContainer>
-      <div className="sidebar">
-        <span>
-          <JobTypeCheckbox />
-        </span>
-        <span className="radio-buttons">
-          <JobLocationRadioButtons />
-        </span>
-      </div>
       <JobsSection>
         <div className="top-bar">
-          <span className="job-length">Showing 100258 Results</span>
+          <span className="job-length">Showing {jobs.length} jobs</span>
           <div className="job-select">
             <span className="job-locations">Locations</span>
             <span>
               <DownIcon />
             </span>
           </div>
-          <JobTypeCheckbox />
+          <FormControl className="radio-buttons">
+            <FormControlLabel
+              // checked={checked}
+              value="full_time"
+              // onChange={handleFilterChange}
+              control={<Checkbox />}
+              label={
+                <span
+                  style={{
+                    fontFamily: "Inter",
+                    fontWeight: "700",
+                    fontSize: "14px",
+                  }}
+                >
+                  Full Time
+                </span>
+              }
+            />
+          </FormControl>
+        </div>
+        <div>
+          {error && <span className="error">Error. Try Refreshing.</span>}
         </div>
         {jobs?.length > 0 ? (
           <div className="jobs">
-            {jobs.map((job: IJob) => (
+            {jobs.map((job) => (
               <div>
                 <Job job={job} key={job.id} />
               </div>
@@ -88,11 +81,12 @@ const Jobs = () => {
         )}
         <div className="pagination">
           <Pagination
+            onChange={handlePageChange}
             count={10}
             size="small"
             page={page}
             defaultPage={1}
-            onChange={handleChange}
+            // onChange={handleChange}
           />
         </div>
       </JobsSection>
