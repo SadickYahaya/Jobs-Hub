@@ -53,7 +53,7 @@ export const JobsSection = styled.div`
   display: grid;
   width: auto;
   grid-template-columns: 1fr;
-  grid-gap: 30px;
+  grid-gap: 5px;
   place-content: center;
   @media (max-width: 600px) {
     width: 100%;
@@ -65,6 +65,12 @@ export const JobsSection = styled.div`
     justify-content: flex-end;
     align-items: center;
     margin-top: 4px;
+  }
+
+  .error {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
   }
 
   h4 {
