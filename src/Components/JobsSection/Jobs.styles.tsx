@@ -14,8 +14,8 @@ export const JobsContainer = styled.div`
 
   @media (max-width: 1024px) {
     align-items: center;
-    flex-shrink: 1;
-    width: 90%;
+    width: 80%;
+    max-width: 100%;
 
     .sidebar {
       align-self: flex-start;
@@ -56,6 +56,11 @@ export const JobsSection = styled.div`
   grid-gap: 5px;
   place-content: center;
   @media (max-width: 600px) {
+    width: 100%;
+    place-content: center;
+  }
+
+  @media (max-width: 1024px) {
     width: 100%;
     place-content: center;
   }
@@ -101,8 +106,8 @@ export const JobsSection = styled.div`
     /* overflow-y: scroll; */
     width: auto;
     @media (max-width: 600px) {
-      overflow-y: scroll;
       height: 100vh;
+      width: 90%;
     }
   }
 `;

@@ -11,7 +11,7 @@ const ACTIONS = {
 const id = process.env.REACT_APP_ID;
 const key = process.env.REACT_APP_KEY;
 
-const BASE_URL = 'https://api.adzuna.com/v1/api/jobs/gb/search/1'
+const BASE_URL = 'https://api.adzuna.com/v1/api/jobs/us/search/1'
 
 function reducer(state, action) {
   switch (action.type) {
@@ -49,7 +49,7 @@ export default function useFetchJobs(params, page) {
       cancelToken: cancelToken2.token,
       params: { app_id: id, app_key: key, results_per_page: 5,  ...params }
     }).then(res => {
-      dispatch({ type: ACTIONS.UPDATE_HAS_NEXT_PAGE, payload: { hasNextPage: res.data.results.length !== 0 } }) 
+      dispatch({ type: ACTIONS.UPDATE_HAS_NEXT_PAGE, payload: { hasNextPage: res.data.length !== 0 } }) 
     }).catch(e => {
       if (axios.isCancel(e)) return
       dispatch({ type: ACTIONS.ERROR, payload: { error: e } }) 

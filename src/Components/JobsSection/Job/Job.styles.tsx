@@ -17,10 +17,6 @@ export const JobContainer = styled.div`
     gap: 0;
   }
 
-  @media (max-width: 1024px) {
-    width: 100%;
-  }
-
   .job-logo img {
     width: 4.5em;
     height: 4.5em;
@@ -67,21 +63,6 @@ export const JobContainer = styled.div`
     width: 5px;
   }
 
-  .job-type {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    width: 10em;
-    justify-content: space-between;
-    @media (max-width: 600px) {
-      justify-content: flex-end;
-      flex-direction: row;
-      .type {
-        padding: 0.7em;
-      }
-    }
-  }
-
   .type {
     padding: 0.3em;
     border-radius: 5px;
@@ -101,7 +82,9 @@ export const JobContainer = styled.div`
     color: #8f3d29;
   }
 
-  .view-button {
+  .button {
     width: auto;
+    align-self: flex-end;
+    justify-self: flex-end;
   }
 `;

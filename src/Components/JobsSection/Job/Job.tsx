@@ -50,13 +50,10 @@ const Job = ({ job }) => {
             </h5>
           </div>
         </div>
-        <div className="job-type">
-          {/* <span className={changeColor()}>{job.contract_time || "N/A"}</span> */}
-          <div className="button">
-            <span className="view-button" onClick={() => navigate("/view-job")}>
-              <DefaultButton {...viewJobButton} />
-            </span>
-          </div>
+        <div className="button">
+          <span className="view-button" onClick={() => navigate("/view-job")}>
+            <DefaultButton {...viewJobButton} />
+          </span>
         </div>
       </JobContainer>
     </>
