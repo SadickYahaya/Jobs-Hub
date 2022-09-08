@@ -11,7 +11,7 @@ import Header from "../Header/Header";
 const Jobs = () => {
   const [params, setParams] = useState({});
   const [page, setPage] = useState(1);
-  const { jobs, error, hasNextPage } = useFetchJobs(params, page);
+  const { jobs, error } = useFetchJobs(params, page);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
