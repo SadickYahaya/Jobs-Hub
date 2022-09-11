@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
-import Job from "./Components/JobsSection/Job/Job";
 import JobDetails from "./Components/JobsSection/JobDetails/JobDetails";
 
 function App() {

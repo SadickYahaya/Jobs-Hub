@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -33,7 +33,7 @@ const Checkboxes = ({ params, onParamChange }) => {
 
   const handleDropdown = () => {
     setShow((prev) => !prev);
-    setIcon(!icon);
+    setIcon(!icon); 
   };
   return (
     <CheckBoxContainer>
