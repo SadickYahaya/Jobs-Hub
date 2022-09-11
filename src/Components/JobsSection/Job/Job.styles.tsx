@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const JobContainer = styled.div`
-  width: auto;
+  width: 83%;
+  margin: 0 auto;
   height: auto;
   padding: 1em;
   background-color: #f3f3f3;
@@ -15,10 +16,6 @@ export const JobContainer = styled.div`
     width: 100vw;
     flex-direction: column;
     gap: 0;
-  }
-
-  @media (max-width: 1024px) {
-    width: 100%;
   }
 
   .job-logo img {
@@ -67,21 +64,6 @@ export const JobContainer = styled.div`
     width: 5px;
   }
 
-  .job-type {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    width: 10em;
-    justify-content: space-between;
-    @media (max-width: 600px) {
-      justify-content: flex-end;
-      flex-direction: row;
-      .type {
-        padding: 0.7em;
-      }
-    }
-  }
-
   .type {
     padding: 0.3em;
     border-radius: 5px;
@@ -101,7 +83,9 @@ export const JobContainer = styled.div`
     color: #8f3d29;
   }
 
-  .view-button {
+  .button {
     width: auto;
+    align-self: flex-end;
+    justify-self: flex-end;
   }
 `;

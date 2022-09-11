@@ -14,38 +14,8 @@ export const JobsContainer = styled.div`
 
   @media (max-width: 1024px) {
     align-items: center;
-    flex-shrink: 1;
-    width: 90%;
-
-    .sidebar {
-      align-self: flex-start;
-    }
-  }
-
-  .sidebar {
-    background-color: #f3f3f3;
-    height: max-content;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    padding: 1em;
-    gap: 1em;
-    border-radius: 10px;
-    width: 20em;
-  }
-
-  @media (max-width: 600px) {
-    width: 90%;
-    .sidebar {
-      flex-direction: row-reverse;
-      align-items: flex-start;
-      justify-content: space-evenly;
-      background-color: #fff;
-    }
-  }
-
-  .radio-buttons {
-    align-self: center;
+    width: 80%;
+    max-width: 100%;
   }
 `;
 
@@ -53,9 +23,14 @@ export const JobsSection = styled.div`
   display: grid;
   width: auto;
   grid-template-columns: 1fr;
-  grid-gap: 5px;
+  grid-gap: 10px;
   place-content: center;
   @media (max-width: 600px) {
+    width: 100%;
+    place-content: center;
+  }
+
+  @media (max-width: 1024px) {
     width: 100%;
     place-content: center;
   }
@@ -79,13 +54,20 @@ export const JobsSection = styled.div`
   }
 
   .top-bar {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row-reverse;
   }
 
   .job-select {
     display: flex;
+  }
+
+  .error-message {
+    justify-self: flex-end;
   }
 
   .job-length,
@@ -94,15 +76,18 @@ export const JobsSection = styled.div`
     margin-bottom: 0px;
   }
 
+  .job-length {
+    margin-right: 5px;
+  }
+
   .jobs {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    /* overflow-y: scroll; */
     width: auto;
     @media (max-width: 600px) {
-      overflow-y: scroll;
       height: 100vh;
+      width: 90%;
     }
   }
 `;

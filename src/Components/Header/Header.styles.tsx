@@ -12,6 +12,10 @@ export const HeaderStyles = styled.header`
   @media (max-width: 600px) {
     width: 100%;
   }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const Nav = styled.div`
@@ -26,6 +30,9 @@ export const Nav = styled.div`
 `;
 
 export const Search = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   margin-bottom: 2em;
   @media (max-width: 600px) {
     /* display: none; */
@@ -33,6 +40,14 @@ export const Search = styled.div`
 
   @media (max-width: 1024px) {
     width: 80%;
+  }
+
+  .checkbox {
+    align-self: flex-end;
+  }
+
+  .fulltime {
+    font-family: "Inter", sans-serif;
   }
 `;
 

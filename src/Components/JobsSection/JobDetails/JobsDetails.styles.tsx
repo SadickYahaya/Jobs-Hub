@@ -24,6 +24,7 @@ export const JobDetailsContainer = styled.div`
 `;
 
 export const JobDetail = styled.div`
+  font-family: "Inter";
   display: flex;
   flex-direction: column;
   padding: 1em;
@@ -32,6 +33,11 @@ export const JobDetail = styled.div`
   .type {
     display: flex;
     gap: 1em;
+  }
+
+  .type {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .job-info-container {
@@ -51,8 +57,9 @@ export const JobDetail = styled.div`
     width: auto;
   }
 
-  .location {
-    align-self: center;
+  .dot {
+    height: 5px;
+    width: 5px;
   }
 
   .title {
@@ -60,19 +67,11 @@ export const JobDetail = styled.div`
     font-weight: 700;
   }
 
-  .logo-container {
-    height: fit-content;
-  }
-
-  .logo-container img {
-    width: 6.25em;
-    height: 6.25em;
-  }
-
   .location {
     display: flex;
     align-items: center;
     opacity: 0.8;
+    gap: 0.5em;
   }
 
   .job-type {
@@ -82,7 +81,67 @@ export const JobDetail = styled.div`
     border-radius: 5px;
   }
 
-  .job-description {
+  .job-description span {
+    text-align: justify;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+  }
 
+  .apply-now {
+    align-self: center;
+  }
+
+  .apply-now a {
+    text-decoration: none;
+    background-color: #0069d9;
+    color: #fff;
+    font-weight: 700;
+    padding: 7px;
+    border-radius: 5px;
+  }
+
+  .details-type {
+    font-size: 14px;
+  }
+
+  .details-jobType {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .type,
+  .contract-type {
+    padding: 1em;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-size: 12px;
+    font-weight: 700;
+    width: fit-content;
+  }
+
+  .type-full {
+    background-color: rgba(51, 214, 159, 0.1);
+    color: #33d69f;
+  }
+
+  .type-part {
+    background-color: rgba(55, 59, 83, 0.1);
+    color: #8f3d29;
+  }
+
+  .contract-type {
+    background-color: rgba(69, 214, 247, 0.2);
+    color: #45d6f7;
+  }
+
+  .job-logo {
+    color: #d54d7b;
+    font-family: "Great Vibes", cursive;
+    font-size: 30px;
+    font-weight: normal;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
   }
 `;
