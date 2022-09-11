@@ -8,17 +8,20 @@ import { JobContainer } from "./Job.styles";
 // import jobLogo from "../../../Assets/job-logo.jpg";
 
 const Job = ({ job }) => {
-  const changeColor = () => {
-    let className = "";
-    if (job.contract_time === "full_time") {
-      className = "type type-full";
-    } else {
-      className = "type type-part";
-    }
-    return className;
-  };
+  // const changeColor = () => {
+  //   let className = "";
+  //   if (job.contract_time === "full_time") {
+  //     className = "type type-full";
+  //   } else {
+  //     className = "type type-part";
+  //   }
+  //   return className;
+  // };
 
   const navigate = useNavigate();
+  const viewJob = () => {
+    navigate(`/view-job/${job.jobId}`);
+  };
 
   return (
     <>
@@ -29,29 +32,27 @@ const Job = ({ job }) => {
           </div> */}
           <div className="job-title">
             <div>
-              <span className="title">{job.title}</span>
-              <span className={changeColor()}>
-                {job.contract_time || "N/A"}
-              </span>
+              <span className="title">{job.jobTitle}</span>
+              {/* <span className={changeColor()}>{job.jobType || "N/A"}</span> */}
             </div>
             <div className="company-info">
-              <span>{job.company.display_name}</span>
+              <span>{job.employerName}</span>
               <span>
                 <CircleIcon className="dot" />
               </span>
-              <span>{job.location.display_name}</span>
+              <span>{job.locationName}</span>
               <span>
                 <CircleIcon className="dot" />
               </span>
-              <span>{new Date(job.created).toLocaleDateString()}</span>
+              <span>{job.date}</span>
             </div>
             <h5 className="description">
-              {job.description.substring(0, 150)} ...
+              {job.jobDescription.substring(0, 250)} ...
             </h5>
           </div>
         </div>
         <div className="button">
-          <span className="view-button" onClick={() => navigate("/view-job")}>
+          <span className="view-button" onClick={viewJob}>
             <DefaultButton {...viewJobButton} />
           </span>
         </div>

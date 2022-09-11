@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const JobContainer = styled.div`
-  width: auto;
+  width: 83%;
+  margin: 0 auto;
   height: auto;
   padding: 1em;
   background-color: #f3f3f3;

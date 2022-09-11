@@ -6,11 +6,12 @@ const BootstrapButton = styled(Button)({
   boxShadow: "none",
   textTransform: "none",
   fontSize: 16,
-  width: "auto",
+  width: "6em",
   padding: "6px 12px",
   border: "1px solid",
   lineHeight: 1.5,
-  backgroundColor: "#0063cc",
+  backgroundColor: "transparent",
+  color: '#0063cc',
   borderColor: "#0063cc",
   fontFamily: [
     "-apple-system",
@@ -28,6 +29,7 @@ const BootstrapButton = styled(Button)({
     backgroundColor: "#0069d9",
     borderColor: "#0062cc",
     boxShadow: "none",
+    color: '#fff',
   },
   "&:active": {
     boxShadow: "none",

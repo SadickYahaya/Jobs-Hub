@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
-// import FormControl from "@mui/material/FormControl";
-// import { Form } from "react-bootstrap";
+import FormControl from "@mui/material/FormControl";
+import { Form } from "react-bootstrap";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import BusinessCenterTwoToneIcon from "@mui/icons-material/BusinessCenterTwoTone";
@@ -11,7 +11,18 @@ import { HeaderStyles, Nav, Search } from "./Header.styles";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import Stack from "@mui/material/Stack";
 
-const Header = ({ params, onParamChange }) => {
+export type SearchParams = {
+  description: string;
+  location: string;
+  full_time: boolean;
+};
+
+type SearchFormProps = {
+  params: { [key: string]: any };
+  onParamChange: (e: ChangeEvent<HTMLInputElement>) => void;
+};
+
+const Header = ({ params, onParamChange }: SearchFormProps) => {
   return (
     <>
       <HeaderStyles>
@@ -57,13 +68,13 @@ const Header = ({ params, onParamChange }) => {
                 <BusinessCenterTwoToneIcon fontSize="small" />
               </IconButton>
               <TextField
-                name="what"
+                name="keywords"
                 variant="standard"
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="jobs, titles or company"
                 inputProps={{ "aria-label": "enter job, title or company" }}
                 onChange={onParamChange}
-                value={params.what}
+                value={params.keywords}
                 InputProps={{
                   disableUnderline: true, // <== added this
                 }}
@@ -107,7 +118,7 @@ const Header = ({ params, onParamChange }) => {
                 <LocationIcon fontSize="small" />
               </IconButton>
               <TextField
-                name="where"
+                name="location"
                 variant="standard"
                 sx={{
                   ml: 1,
@@ -118,24 +129,24 @@ const Header = ({ params, onParamChange }) => {
                 placeholder="city, state or zip code"
                 inputProps={{ "aria-label": "enter city, state or country" }}
                 onChange={onParamChange}
-                value={params.where}
+                value={params.location}
                 InputProps={{
-                  disableUnderline: true, // <== added this
+                  disableUnderline: true,
                 }}
               />
             </Paper>
           </Stack>
-          {/* <FormControl className="checkbox">
+          <FormControl className="checkbox">
             <Form.Check
               onChange={onParamChange}
-              value={params.full_time=1}
+              value={params.fullTime}
               name="full_time"
               id="full-time"
               label="Full Time"
-              type="switch"
+              type="checkbox"
               className="fulltime"
             />
-          </FormControl> */}
+          </FormControl>
         </Search>
       </HeaderStyles>
     </>
