@@ -19,8 +19,7 @@ export const HeaderStyles = styled.header`
 `;
 
 export const Nav = styled.div`
-  width: 70%;
-  /* height: 2em; */
+  width: 50%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -35,7 +34,7 @@ export const Search = styled.div`
   gap: 5px;
   margin-bottom: 2em;
   @media (max-width: 600px) {
-    /* display: none; */
+    gap: 2em;
   }
 
   @media (max-width: 1024px) {

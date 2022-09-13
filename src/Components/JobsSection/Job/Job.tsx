@@ -5,35 +5,45 @@ import CircleIcon from "@mui/icons-material/Circle";
 import DefaultButton from "../../../Utils/Button";
 import { viewJobButton } from "../../../Utils/JobData";
 import { JobContainer } from "./Job.styles";
-// import jobLogo from "../../../Assets/job-logo.jpg";
 
-const Job = ({ job }) => {
-  // const changeColor = () => {
-  //   let className = "";
-  //   if (job.contract_time === "full_time") {
-  //     className = "type type-full";
-  //   } else {
-  //     className = "type type-part";
-  //   }
-  //   return className;
-  // };
+const Job = ({ job, params }) => {
+  const changeColor = () => {
+    let className = "";
+    if (params.fullTime) {
+      className = "type type-full";
+    } else {
+      className = "type type-part";
+    }
+    return className;
+  };
 
   const navigate = useNavigate();
   const viewJob = () => {
     navigate(`/view-job/${job.jobId}`);
   };
 
+  
+
   return (
     <>
       <JobContainer>
         <div className="job-info">
-          {/* <div className="job-logo">
-            <img src={jobLogo} alt="" />
-          </div> */}
           <div className="job-title">
             <div>
-              <span className="title">{job.jobTitle}</span>
-              {/* <span className={changeColor()}>{job.jobType || "N/A"}</span> */}
+              <span className="title" onClick={viewJob}>
+                {job.jobTitle}
+              </span>
+              <span className={changeColor()}>
+                {params.fullTime && !params.partTime ? (
+                  "FullTime"
+                ) : !params.fullTime && params.partTime ? (
+                  "PartTime"
+                ) : params.fullTime && params.partTime ? (
+                  "FullTime or PartTime"
+                ) : (
+                  ' '
+                )}
+              </span>
             </div>
             <div className="company-info">
               <span>{job.employerName}</span>
@@ -46,12 +56,19 @@ const Job = ({ job }) => {
               </span>
               <span>{job.date}</span>
             </div>
-            <h5 className="description">
-              {job.jobDescription.substring(0, 250)} ...
-            </h5>
+            <div
+              className="description"
+              dangerouslySetInnerHTML={{
+                __html: `<span id-'job-description'>${job.jobDescription.substring(
+                  0,
+                  250
+                )} ...</span>`,
+              }}
+            ></div>
           </div>
         </div>
         <div className="button">
+          <span className="job-logo">{job.employerName}</span>
           <span className="view-button" onClick={viewJob}>
             <DefaultButton {...viewJobButton} />
           </span>

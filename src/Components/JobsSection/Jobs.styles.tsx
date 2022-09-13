@@ -8,7 +8,7 @@ export const JobsContainer = styled.div`
   justify-content: center;
   gap: 1em;
   @media (max-width: 600px) {
-    width: 90%;
+    width: 100%;
     flex-direction: column;
   }
 
@@ -28,6 +28,10 @@ export const JobsSection = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     place-content: center;
+
+    .job-length {
+      display: none;
+    }
   }
 
   @media (max-width: 1024px) {
@@ -60,6 +64,10 @@ export const JobsSection = styled.div`
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
+    @media (max-width: 600px) {
+      justify-content: flex-start;
+      flex-direction: row;
+    }
   }
 
   .job-select {
