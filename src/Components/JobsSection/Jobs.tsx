@@ -21,6 +21,7 @@ const Jobs = () => {
     setParams((prevParams) => {
       return { ...prevParams, [param]: value };
     });
+    
   }
 
   const indexOfLastPost = page * postsPerPage;
