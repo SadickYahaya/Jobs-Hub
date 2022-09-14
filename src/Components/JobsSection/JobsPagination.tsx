@@ -1,26 +1,28 @@
-import React, {Dispatch, SetStateAction} from 'react';
-import Pagination from 'react-bootstrap/Pagination';
+import React from "react";
 
-type JobsPaginationProps = {
-  page: number;
-  setPage: Dispatch<SetStateAction<number>>;
-  hasNextPage: boolean;
-}
+const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+  const pageNumbers = [];
 
-export default function JobsPagination({page, setPage, hasNextPage}: JobsPaginationProps) {
-  function adjustPage(amount: number) {
-    setPage((prevPage: number) => prevPage + amount);
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pageNumbers.push(i);
   }
 
+  console.log('postsperpage ' + postsPerPage)
+  console.log('totalPosts ' + totalPosts)
+
   return (
-    <Pagination>
-      {page !== 1 && <Pagination.Prev onClick={() => adjustPage(-1)}/>}
-      {page !== 1 && <Pagination.Item onClick={() => setPage(1)}>1</Pagination.Item>}
-      {page > 2 && <Pagination.Ellipsis/>}
-      {page > 2 && <Pagination.Item onClick={() => adjustPage(-1)}>{page - 1}</Pagination.Item>}
-      <Pagination.Item active>{page}</Pagination.Item>
-      {hasNextPage && <Pagination.Item onClick={() => adjustPage(1)}>{page + 1}</Pagination.Item>}
-      {hasNextPage && <Pagination.Next onClick={() => adjustPage(1)}/>}
-    </Pagination>
-  )
-}
+    <nav>
+      <ul className="pagination">
+        {pageNumbers.map((number) => (
+          <li key={number} className="page-item">
+            <a onClick={() => paginate(number)} href="!#" className="page-link">
+              {number}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+export default Pagination;

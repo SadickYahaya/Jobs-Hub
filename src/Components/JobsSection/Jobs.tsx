@@ -2,25 +2,40 @@ import React, { useState } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import { JobsContainer, JobsSection } from "./Jobs.styles";
-// import Pagination from "@mui/material/Pagination";
 import Job from "./Job/Job";
 import useFetchJobs from "../../api/useFetchJobs";
 import Header from "../Header/Header";
 import Checkboxes from "../../Utils/Checkboxes";
+import Pagination from "./JobsPagination";
 
 const Jobs = () => {
   const [params, setParams] = useState({});
   const [page, setPage] = useState(1);
-  const { jobs, error } = useFetchJobs(params, page);
+  const { jobs, error } = useFetchJobs(params);
+
+  const [postsPerPage] = useState(5);
 
   function handleParamChange(e) {
     const param = e.target.name;
     const value = e.target.value;
-    setPage(1);
     setParams((prevParams) => {
       return { ...prevParams, [param]: value };
     });
+
   }
+
+  const indexOfLastPost = page * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentJobs = jobs.slice(indexOfFirstPost, indexOfLastPost);
+
+  // console.log(jobs);
+  // console.log(currentJobs);
+
+  // console.log("indexOfLastPost " + indexOfLastPost);
+  // console.log("indexOfFirstPost " + indexOfFirstPost);
+
+  const paginate = (pageNumber: React.SetStateAction<number>) =>
+    setPage(pageNumber);
 
   return (
     <>
@@ -36,9 +51,9 @@ const Jobs = () => {
           <div className="error-message">
             {error && <span className="error">Error. Try Refreshing.</span>}
           </div>
-          {jobs?.length > 0 ? (
+          {currentJobs?.length > 0 ? (
             <div className="jobs">
-              {jobs.map((job) => (
+              {currentJobs.map((job) => (
                 <div key={jobs._id}>
                   <Job job={job} key={job._id} params={params} />
                 </div>
@@ -60,12 +75,11 @@ const Jobs = () => {
             </Stack>
           )}
           <div className="pagination">
-            {/* <Pagination
-              count={5}
-              shape="rounded"
-              page={hasNextPage}
-              // onChange={adjustPage}
-            /> */}
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={currentJobs?.length}
+              paginate={paginate}
+            />
           </div>
         </JobsSection>
       </JobsContainer>

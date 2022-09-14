@@ -29,9 +29,9 @@ const Header = ({ params, onParamChange }: SearchFormProps) => {
       <HeaderStyles>
         <Nav>
           <WorkOutlineIcon />
-          <h2>
+          <h3>
             Jobs <span>Hub</span>
-          </h2>
+          </h3>
         </Nav>
         <Search>
           <Stack spacing={1} direction={{ xs: "column", sm: "row", lg: "row" }}>
