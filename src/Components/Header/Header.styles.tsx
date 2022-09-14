@@ -19,12 +19,20 @@ export const HeaderStyles = styled.header`
 `;
 
 export const Nav = styled.div`
-  width: 50%;
-  margin: 0 auto;
+  width: 61%;
+  margin: 1em auto;
   display: flex;
+  gap: 2px;
   align-items: center;
   @media (max-width: 600px) {
     width: auto;
+  }
+
+  h3 {
+    font-weight: 700;
+    letter-spacing: 2px;
+    justify-self: center;
+    margin-bottom: 2px;
   }
 `;
 

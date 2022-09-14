@@ -22,7 +22,7 @@ function reducer(state, action) {
   }
 }
 
-const userName = process.env.REACT_APP_USERNAME
+const username = process.env.REACT_APP_USERNAME;
 
 export default function useFetchJobs(params) {
   const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true })
@@ -32,7 +32,7 @@ export default function useFetchJobs(params) {
     dispatch({ type: ACTIONS.MAKE_REQUEST })
     axios.get(BASE_URL, {
       auth: {
-        username: userName,
+        username: username,
         password: ''
     },
       cancelToken: cancelToken1.token,
