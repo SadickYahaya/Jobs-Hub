@@ -15,13 +15,12 @@ const Jobs = () => {
 
   const [postsPerPage] = useState(5);
 
-  function handleParamChange(e) {
+  function handleParamChange(e: { target: { name: any; value: any } }) {
     const param = e.target.name;
     const value = e.target.value;
     setParams((prevParams) => {
       return { ...prevParams, [param]: value };
     });
-
   }
 
   const indexOfLastPost = page * postsPerPage;
@@ -61,15 +60,40 @@ const Jobs = () => {
             </div>
           ) : (
             <Stack spacing={1}>
-              <Skeleton variant="rectangular" height={72} animation="wave" />
-              <Skeleton variant="rectangular" height={72} animation="wave" />
-              <Skeleton variant="rectangular" height={72} animation="wave" />
-              <Skeleton variant="rectangular" height={72} animation="wave" />
-              <Skeleton variant="rectangular" height={72} animation="wave" />
               <Skeleton
                 variant="rectangular"
                 width={600}
-                height={72}
+                height={100}
+                animation="wave"
+              />
+              <Skeleton
+                variant="rectangular"
+                width={600}
+                height={100}
+                animation="wave"
+              />
+              <Skeleton
+                variant="rectangular"
+                width={600}
+                height={100}
+                animation="wave"
+              />
+              <Skeleton
+                variant="rectangular"
+                width={600}
+                height={100}
+                animation="wave"
+              />
+              <Skeleton
+                variant="rectangular"
+                width={600}
+                height={100}
+                animation="wave"
+              />
+              <Skeleton
+                variant="rectangular"
+                width={600}
+                height={100}
                 animation="wave"
               />
             </Stack>
