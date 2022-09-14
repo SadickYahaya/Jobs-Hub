@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Skeleton from "@mui/material/Skeleton";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { HeaderStyles, Nav } from "../../Header/Header.styles";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import BackArrow from "@mui/icons-material/KeyboardBackspace";
@@ -22,7 +22,6 @@ interface JobDetailsProps {
 }
 
 const JobDetails = () => {
-  const navigate = useNavigate();
   // @ts-ignore: Argument of type 'string' is not assignable to parameter of type 'number'.
   const [jobDetail, setJobDetail] = useState<JobDetailsProps>([]);
   const { jobId } = useParams();
@@ -59,6 +58,10 @@ const JobDetails = () => {
     return className;
   };
 
+  const goBack = () => {
+    window.location.href = "/";
+  };
+
   return (
     <>
       <HeaderStyles>
@@ -70,7 +73,7 @@ const JobDetails = () => {
         </Nav>
       </HeaderStyles>
       <JobDetailsContainer>
-        <div className="go-back" onClick={() => navigate("/")}>
+        <div className="go-back" onClick={goBack}>
           <BackArrow />
           <span>Previous Page</span>
         </div>

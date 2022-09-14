@@ -13,15 +13,18 @@ export const JobContainer = styled.div`
   flex-grow: 0;
   border-radius: 10px;
   @media (max-width: 600px) {
-    width: 100vw;
+    width: 95vw;
     flex-direction: column;
     gap: 0;
   }
 
-  .job-logo img {
-    width: 4.5em;
-    height: 4.5em;
-    border-radius: 10px;
+  .job-logo {
+    color: #d54d7b;
+    font-family: "Great Vibes", cursive;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: end;
+    text-shadow: 0 1px 1px #fff;
   }
 
   .job-info {
@@ -51,6 +54,11 @@ export const JobContainer = styled.div`
   .title {
     font-size: 18px;
     font-weight: 700;
+    cursor: pointer;
+  }
+
+  .title:hover {
+    text-decoration: underline;
   }
 
   .company-info span {
@@ -68,9 +76,16 @@ export const JobContainer = styled.div`
     padding: 0.3em;
     border-radius: 5px;
     text-transform: capitalize;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     margin-left: 10px;
+  }
+
+  .description span {
+    text-align: justify;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
   }
 
   .type-full {
@@ -85,7 +100,8 @@ export const JobContainer = styled.div`
 
   .button {
     width: auto;
-    align-self: flex-end;
-    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 `;

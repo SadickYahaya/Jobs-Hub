@@ -25,6 +25,8 @@ function reducer(state, action) {
   }
 }
 
+const userName = process.env.REACT_APP_USERNAME
+
 export default function useFetchJobs(params, page) {
   const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true })
 
@@ -33,11 +35,11 @@ export default function useFetchJobs(params, page) {
     dispatch({ type: ACTIONS.MAKE_REQUEST })
     axios.get(BASE_URL, {
       auth: {
-        username: '2bae01d5-cc4a-4e8e-a763-164a7f535944',
+        username: userName,
         password: ''
     },
       cancelToken: cancelToken1.token,
-      params: { page: page, resultsToTake: 100, ...params },
+      params: { locationName: 'london', resultsToSkip: 100, resultsToTake: 100 , ...params },
     }).then(res => {
       dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: res.data.results } }) 
     }).catch(e => {
@@ -48,7 +50,7 @@ export default function useFetchJobs(params, page) {
     const cancelToken2 = axios.CancelToken.source()
     axios.get(BASE_URL, {
       cancelToken: cancelToken2.token,
-      params: {page: page, resultsToTake: 100, ...params },
+      params: {resultsToSkip: 100, resultsToTake: 5, ...params },
       auth: {
         username: '2bae01d5-cc4a-4e8e-a763-164a7f535944',
         password: ''

@@ -1,8 +1,9 @@
 import React, { ChangeEvent } from "react";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
 import FormControl from "@mui/material/FormControl";
-import { Form } from "react-bootstrap";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import BusinessCenterTwoToneIcon from "@mui/icons-material/BusinessCenterTwoTone";
@@ -42,7 +43,7 @@ const Header = ({ params, onParamChange }: SearchFormProps) => {
                 display: "flex",
                 alignItems: "center",
                 width: { sm: 820, lg: 820 },
-                height: 40,
+                height: { sm: 40, xs: 80, md: 40, lg: 40 },
                 flexDirection: {
                   xs: "column",
                   sm: "row",
@@ -118,7 +119,7 @@ const Header = ({ params, onParamChange }: SearchFormProps) => {
                 <LocationIcon fontSize="small" />
               </IconButton>
               <TextField
-                name="location"
+                name="locationName"
                 variant="standard"
                 sx={{
                   ml: 1,
@@ -129,7 +130,7 @@ const Header = ({ params, onParamChange }: SearchFormProps) => {
                 placeholder="city, state or zip code"
                 inputProps={{ "aria-label": "enter city, state or country" }}
                 onChange={onParamChange}
-                value={params.location}
+                value={params.locationName}
                 InputProps={{
                   disableUnderline: true,
                 }}
@@ -137,14 +138,24 @@ const Header = ({ params, onParamChange }: SearchFormProps) => {
             </Paper>
           </Stack>
           <FormControl className="checkbox">
-            <Form.Check
+            <FormControlLabel
+              className="checkbox"
+              control={
+                <Checkbox
+                  size="small"
+                  color="secondary"
+                  name="fullTime"
+                  // checked={checked}
+                />
+              }
+              label={
+                <span style={{ fontFamily: "Inter", fontWeight: "700" }}>
+                  Full Time
+                </span>
+              }
+              value="true"
+              id="paid"
               onChange={onParamChange}
-              value={params.fullTime}
-              name="full_time"
-              id="full-time"
-              label="Full Time"
-              type="checkbox"
-              className="fulltime"
             />
           </FormControl>
         </Search>

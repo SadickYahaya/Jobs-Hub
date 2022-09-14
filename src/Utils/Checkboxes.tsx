@@ -18,22 +18,11 @@ const theme = createTheme({
 
 const Checkboxes = ({ params, onParamChange }) => {
   const [show, setShow] = useState(false);
-  const [filters, setFilters] = useState([]);
   const [icon, setIcon] = useState(false);
-
-  const handleFilterChange = (event) => {
-    const index = filters.indexOf(event.target.value);
-    if (index === -1) {
-      setFilters([...filters, event.target.value]);
-      console.log([...filters, event.target.value]);
-    } else {
-      setFilters(filters.filter((filter) => filter !== event.target.value));
-    }
-  };
 
   const handleDropdown = () => {
     setShow((prev) => !prev);
-    setIcon(!icon); 
+    setIcon(!icon);
   };
   return (
     <CheckBoxContainer>
@@ -64,8 +53,8 @@ const Checkboxes = ({ params, onParamChange }) => {
                       <Checkbox
                         size="small"
                         color="secondary"
-                        name="newyork"
-                        checked={filters.includes("newyork")}
+                        name="locationName"
+                        // checked={filters.includes("newyork")}
                       />
                     }
                     label={
@@ -76,12 +65,12 @@ const Checkboxes = ({ params, onParamChange }) => {
                           fontSize: "12px",
                         }}
                       >
-                        New York
+                        Brighton
                       </span>
                     }
-                    value="newyork"
-                    id="newyork"
-                    onChange={handleFilterChange}
+                    value="brighton"
+                    id="brighton"
+                    onChange={onParamChange}
                   />
                   <FormControlLabel
                     className="checkbox"
@@ -89,8 +78,8 @@ const Checkboxes = ({ params, onParamChange }) => {
                       <Checkbox
                         size="small"
                         color="secondary"
-                        name="nevada"
-                        checked={filters.includes("nevada")}
+                        name="locationName"
+                        // checked={filters.includes("nevada")}
                       />
                     }
                     label={
@@ -101,12 +90,12 @@ const Checkboxes = ({ params, onParamChange }) => {
                           fontSize: "12px",
                         }}
                       >
-                        Nevada
+                        Liverpool
                       </span>
                     }
-                    value="nevada"
-                    id="nevada"
-                    onChange={handleFilterChange}
+                    value="liverpool"
+                    id="liverpool"
+                    onChange={onParamChange}
                   />
                   <FormControlLabel
                     className="checkbox"
@@ -114,8 +103,8 @@ const Checkboxes = ({ params, onParamChange }) => {
                       <Checkbox
                         size="small"
                         color="secondary"
-                        name="yorkshire"
-                        checked={filters.includes("yorkshire")}
+                        name="locationName"
+                        // checked={filters.includes("yorkshire")}
                       />
                     }
                     label={
@@ -126,12 +115,12 @@ const Checkboxes = ({ params, onParamChange }) => {
                           fontSize: "12px",
                         }}
                       >
-                        Yorkshire
+                        Sheffield
                       </span>
                     }
-                    value="yorkshire"
-                    id="yorkshire"
-                    onChange={handleFilterChange}
+                    value="sheffield"
+                    id="sheffield"
+                    onChange={onParamChange}
                   />
                   <FormControlLabel
                     className="checkbox"
@@ -139,8 +128,8 @@ const Checkboxes = ({ params, onParamChange }) => {
                       <Checkbox
                         size="small"
                         color="secondary"
-                        name="miami"
-                        checked={filters.includes("miami")}
+                        name="locationName"
+                        // checked={filters.includes("miami")}
                       />
                     }
                     label={
@@ -151,12 +140,12 @@ const Checkboxes = ({ params, onParamChange }) => {
                           fontSize: "12px",
                         }}
                       >
-                        Miami
+                        Manchester
                       </span>
                     }
-                    value="miami"
-                    id="miami"
-                    onChange={handleFilterChange}
+                    value="manchester"
+                    id="manchester"
+                    onChange={onParamChange}
                   />
                 </FormGroup>
               )}
