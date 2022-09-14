@@ -92,7 +92,7 @@ export const JobsSection = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1em;
-    width: auto;
+    width: 60vw;
     @media (max-width: 600px) {
       height: 100vh;
       width: 90%;

@@ -25,10 +25,10 @@ export const CheckBoxContainer = styled.div`
     cursor: pointer;
   }
 
-  .arrow-icons {
+  /* .arrow-icons {
     width: 20px;
     height: 14px;
-  }
+  } */
 
   .up-icon,
   .down-icon {
