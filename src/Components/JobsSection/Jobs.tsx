@@ -43,7 +43,7 @@ const Jobs = () => {
       <JobsContainer>
         <JobsSection>
           <div className="top-bar">
-            <span className="job-length">Showing jobs</span>
+            <span className="job-length">Showing {jobs.length} jobs</span>
             <div className="job-select">
               <Checkboxes params={params} onParamChange={handleParamChange} />
             </div>
