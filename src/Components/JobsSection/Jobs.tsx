@@ -21,7 +21,7 @@ const Jobs = () => {
     setParams((prevParams) => {
       return { ...prevParams, [param]: value };
     });
-    
+
   }
 
   const indexOfLastPost = page * postsPerPage;
@@ -33,8 +33,7 @@ const Jobs = () => {
 
   console.log("indexOfLastPost " + indexOfLastPost);
   console.log("indexOfFirstPost " + indexOfFirstPost);
-
-  // Change page
+  
   const paginate = (pageNumber: React.SetStateAction<number>) =>
     setPage(pageNumber);
 
