@@ -58,7 +58,7 @@ export const JobsSection = styled.div`
   }
 
   .top-bar {
-    width: 80%;
+    min-width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
