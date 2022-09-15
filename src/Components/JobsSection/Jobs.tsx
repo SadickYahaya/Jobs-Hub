@@ -27,12 +27,6 @@ const Jobs = () => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentJobs = jobs.slice(indexOfFirstPost, indexOfLastPost);
 
-  // console.log(jobs);
-  // console.log(currentJobs);
-
-  // console.log("indexOfLastPost " + indexOfLastPost);
-  // console.log("indexOfFirstPost " + indexOfFirstPost);
-
   const paginate = (pageNumber: React.SetStateAction<number>) =>
     setPage(pageNumber);
 
@@ -98,7 +92,7 @@ const Jobs = () => {
               />
             </Stack>
           )}
-          <div className="pagination">
+          <div className="jobs-pagination">
             <Pagination
               postsPerPage={postsPerPage}
               totalPosts={currentJobs?.length}

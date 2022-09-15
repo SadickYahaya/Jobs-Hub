@@ -39,11 +39,14 @@ export const JobsSection = styled.div`
     place-content: center;
   }
 
-  .pagination {
+  .jobs-pagination {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin-top: 4px;
+    @media (max-width: 600px) {
+      margin-top: 760px;
+    }
   }
 
   .error {
@@ -96,6 +99,9 @@ export const JobsSection = styled.div`
     @media (max-width: 600px) {
       height: 100vh;
       width: 90%;
+    }
+    @media (max-width: 1024px) {
+      width: 90vw;
     }
   }
 `;
