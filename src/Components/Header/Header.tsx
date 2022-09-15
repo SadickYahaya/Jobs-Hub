@@ -154,7 +154,7 @@ const Header = ({ params, onParamChange }: SearchFormProps) => {
                 </span>
               }
               value="true"
-              id="paid"
+              id="fullTime"
               onChange={onParamChange}
             />
           </FormControl>

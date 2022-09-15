@@ -20,6 +20,7 @@ export const JobDetailsContainer = styled.div`
     color: #0069d9;
     font-weight: 700;
     cursor: pointer;
+    margin-bottom: 1em;
   }
 `;
 

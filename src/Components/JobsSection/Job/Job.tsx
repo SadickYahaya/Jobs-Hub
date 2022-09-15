@@ -34,11 +34,11 @@ const Job = ({ job, params }) => {
                 {job.jobTitle}
               </span>
               <span className={changeColor()}>
-                {params.fullTime && !params.partTime ? (
+                {params.fullTime === true && params.partTime === undefined ? (
                   "FullTime"
-                ) : !params.fullTime && params.partTime ? (
+                ) : params.fullTime === undefined && params.partTime === true ? (
                   "PartTime"
-                ) : params.fullTime && params.partTime ? (
+                ) : params.fullTime === true && params.partTime === true? (
                   "FullTime or PartTime"
                 ) : (
                   ' '

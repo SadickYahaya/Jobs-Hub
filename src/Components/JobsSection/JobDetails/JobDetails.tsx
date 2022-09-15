@@ -67,9 +67,9 @@ const JobDetails = () => {
       <HeaderStyles>
         <Nav>
           <WorkOutlineIcon />
-          <h2>
+          <h3>
             Jobs <span>Hub</span>
-          </h2>
+          </h3>
         </Nav>
       </HeaderStyles>
       <JobDetailsContainer>
@@ -77,7 +77,6 @@ const JobDetails = () => {
           <BackArrow />
           <span>Previous Page</span>
         </div>
-        <h3>Job Details</h3>
         <div className="details-section">
           <JobDetail>
             <div className="job-info-container">
