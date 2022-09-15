@@ -39,6 +39,14 @@ npm start
 - Netlify [https://amalitech-jobs-hub.netlify.app/](https://amalitech-jobs-hub.netlify.app/)
 
 
+## Screenshots
+- Jobs Page
+<img src="src/Assets/Screenshots/homepage.png">
+
+- Job Detail Page
+<img src="src/Assets/Screenshots/jobDetails.png">
+
+
 
 
 

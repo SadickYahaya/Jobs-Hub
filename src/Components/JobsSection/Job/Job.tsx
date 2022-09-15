@@ -22,8 +22,6 @@ const Job = ({ job, params }) => {
     navigate(`/view-job/${job.jobId}`);
   };
 
-  
-
   return (
     <>
       <JobContainer>
@@ -34,15 +32,13 @@ const Job = ({ job, params }) => {
                 {job.jobTitle}
               </span>
               <span className={changeColor()}>
-                {params.fullTime === true && params.partTime === undefined ? (
-                  "FullTime"
-                ) : params.fullTime === undefined && params.partTime === true ? (
-                  "PartTime"
-                ) : params.fullTime === true && params.partTime === true? (
-                  "FullTime or PartTime"
-                ) : (
-                  ' '
-                )}
+                {params.fullTime && params.partTime === undefined
+                  ? "Full Time"
+                  : params.fullTime === undefined && params.partTime
+                  ? "Part Time"
+                  : params.fullTime && params.partTime
+                  ? "Full Time or Part Time"
+                  : " "}
               </span>
             </div>
             <div className="company-info">
