@@ -5,10 +5,6 @@ import React from "react";
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  // for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-  //   pageNumbers.push(i);
-  // }
-
   return (
     <nav>
       <ul className="pagination">
