@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// import Skeleton from "@mui/material/Skeleton";
 import CircleIcon from "@mui/icons-material/Circle";
 import DefaultButton from "../../../Utils/Button";
 import { viewJobButton } from "../../../Utils/JobData";

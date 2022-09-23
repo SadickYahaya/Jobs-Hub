@@ -77,7 +77,7 @@ const Header = ({ params, onParamChange }: SearchFormProps) => {
                 onChange={onParamChange}
                 value={params.keywords}
                 InputProps={{
-                  disableUnderline: true, // <== added this
+                  disableUnderline: true, 
                 }}
               />
 

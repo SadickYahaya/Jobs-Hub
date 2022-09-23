@@ -1,5 +1,5 @@
 # Jobs Hub
-## Overview
+### Overview
  A job portal to allow users to search for jobs.
 
 ### Features

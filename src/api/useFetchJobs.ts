@@ -45,7 +45,6 @@ export default function useFetchJobs(params) {
     })
     return () => {
       cancelToken1.cancel()
-      // cancelToken2.cancel()
     }
   }, [params])
   
